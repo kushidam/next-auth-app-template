@@ -2,7 +2,10 @@ import NextAuth, { NextAuthConfig } from "next-auth";
 import github from "next-auth/providers/github";
 
 export const config : NextAuthConfig = {
-  providers: [github],
+  providers: [github({
+    clientId: process.env.GITHUB_ID,
+    clientSecret: process.env.GITHUB_SECRET
+  })],
   basePath: "/api/auth",
   callbacks: {
     authorized({request, auth}) {
