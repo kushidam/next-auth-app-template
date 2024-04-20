@@ -36,7 +36,11 @@ export default function ClientExample() {
           Current Session
         </div>
         <pre className="py-6 px-4 whitespace-pre-wrap break-all">
-          {JSON.stringify(session, null, 2)}
+          {status === "loading" ? (
+            <div>"Loading..."</div> 
+          ): (
+            <> {JSON.stringify(session, null, 2)}</>
+          )}
         </pre>
       </div>
     </div>
